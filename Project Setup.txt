@@ -1,0 +1,30 @@
+Exploratory Data Analysis (EDA) on US-Accidents(2016-2021) Data.
+
+Setup Dataset:
+	1.) Open This Link and Download the Dataset(CSV file): " https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents "
+	2.) Name the Dataset file to "US_Accidents_Dec21_updated.csv"
+	3.) Now, move this csv file into folder "eda\src\usaccidents\US_Accidents_Dec21_updated.csv", so csv file is inside usaccidents folder
+
+
+Installation of Required libraries (if not working try "pip3"):
+	Install the following libraries: (Pandas), (Numpy), (Folium), (Seaborn), (Matplotlib)
+	pip install pandas
+	pip install numpy
+	pip install folium
+	pip install seaborn
+
+	(Run below two in order to install matplotlib)
+	python -m pip install -U pip
+	python -m pip install -U matplotlib
+
+
+How to run the program:
+	1.) Open the "eda\src" folder inside the terminal
+	2.) Now run the following command in terminal: "python manage.py runserver"
+	3.) Click (Ctrl+Click) on the link "http://127.0.0.1:8000/" from inside the terminal
+	4.) Type and append "/mainpage" to the link in the browser. (eg., "http://127.0.0.1:8000/mainpage")
+	5.) It will take approx 3 minutes and the Data Analysis will be loaded on the webpage.
+
+
+
+

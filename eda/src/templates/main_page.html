@@ -1,0 +1,252 @@
+<html >
+<head>
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Poppins';
+        }
+        
+        body{
+            font-size: x-large;
+            font-family: 'Poppins';
+        }
+        ul li{
+            font-size:large;
+        }
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+        .maintitle{
+            font-size: 30px;
+            margin-top: 30px;
+            border: 2px solid #333;
+            /* border-radius: 3px; */
+            background-color: darkblue;
+            color:rgb(225,225,225);
+            text-align: center;
+            padding:5px 0;
+        }
+        .title1{
+            font-size:x-large;
+            margin-top: 17px;
+            border-top: 2px solid #333;
+            border-left: 6px solid #333;
+            border-right: 6px solid #333;
+            padding: 6px;
+            font-weight: bold;
+            text-indent: 10px;
+            text-align: center;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+        .prestyle{
+            /* border: 3px solid #333; */
+            font-size: 14px;
+            font-family: 'Cascadia Code';
+            color:black;
+            letter-spacing: 0.1ch;
+        }
+        div{
+            font-size: large;
+            font-weight:600;
+        }
+        .datas{
+            font-size:14px;
+            padding: 6px;
+            margin: 5px 5px;
+            border:1.5px solid #333;
+            background-color: aliceblue;
+            border-radius: 4px; 
+            display: inline-block;
+        }
+        .datas:hover{
+            scale: 1.02;
+            transition:0.4s;
+        }
+        .imgs img{
+            display: block;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>US Accidents(2016-2021) Exploratory Data Analysis</h1>
+
+    <h2>DataSet Information</h2>
+    <ul>
+        <li>Source     : Kaggle</li>
+        <li>Contents   : Information about Accidents</li>
+        <li>How is it Useful : Useful to take preventive measures to decrease accidents</li>
+        <li>Note : Data does not contain info about New York (Top Populated City)</li>
+    </ul>
+
+    <p class="maintitle">Data Cleaning and Preparations</p>
+
+    <p class="title1">Preview of dataset(Read File)</p>
+        <pre class="prestyle">
+            {{ dict.0 }}
+        </pre>
+    <p class="title1">The List of Columns</p>
+        <pre class="prestyle">{{ dict.1 }}</pre>
+
+    <p class="title1">DataSet Info</p>
+        <pre class="prestyle">{{ dict.2 }}</pre>
+
+    <p class="title1">DataSet Numeric Value Analysis</p>
+        <pre class="prestyle">{{ dict.3 }}</pre>
+
+    <p class="title1">Missing Values per Columns</p>
+        <p class="imgs">
+            {% load static %}
+            <img src="{% static 'images/missing.jpg' %}" alt="Missing_value_Percentages">
+        </p>
+            <div>
+               &nbsp;&nbsp;&nbsp;>>> Here we can remove 'Number' Column due to more no of missing Values
+                but it is not a good practice so we stay with our current data
+                and not use these columns
+            </div>
+
+
+    <p class="maintitle">Exploratory analysis & visualization on: Cities</p>
+
+    <p class="title1">City Dataset Information</p>
+        <pre class="prestyle">{{ dict.4 }}</pre>
+
+    <p class="title1">No of Unique cities present in Dataset:</p>
+    <div>
+        &nbsp;&nbsp;&nbsp;>>> There are {{ dict.5 }} unique cities where accidents occurred
+    </div>
+
+    <p class="title1">Cities with their no of accidents</p>
+    <pre class="prestyle">{{ dict.6 }}</pre>
+
+    <p class="title1">Top 20 cities with their accidents count and plot</p>
+        <pre class="prestyle">{{ dict.7 }}</pre>
+
+        <p class="imgs">
+            {% load static %}
+            <img src="{% static 'images/top20city.jpg' %}" alt="">
+        </p>
+
+    <p class="title1">Cities vs Accidents</p>
+        <p class="imgs">
+            {% load static %}
+            <img src="{% static 'images/cityvsacci.jpg' %}" alt="">
+        </p>
+
+    <p class="title1">Cities with only 1 accident count</p>
+        <pre class="prestyle">{{ dict.8 }}</pre>
+
+
+    <p class="maintitle">Exploratory analysis & visualization on: Accident Timings</p>
+
+    <p class="title1">Accidents Timing list</p>
+    <pre class="prestyle">{{ dict.9 }}</pre>
+
+    <p class="title1">Plot Analysis of Accident Timing</p>
+        <p class="imgs">
+            {% load static %}
+            <img src="{% static 'images/starttime.jpg' %}" alt="">
+            <div>
+               &nbsp;&nbsp;&nbsp;>>> We can conclude that most of the accidents occurr between 3:00 PM to 5:00 PM.
+                And 7:00 AM to 9:00 AM.
+            </div>
+        </p>
+
+    <p class="title1">Week days (0-Monday, 6-Sunday) vs density of records present</p>
+    <p class="imgs">
+        {% load static %}
+        <img src="{% static 'images/weekdata.jpg' %}" alt="">
+        <div>
+           &nbsp;&nbsp;&nbsp;>>> Weekend Days data has less density compared to Workdays
+        </div>
+    </p>
+
+    <p class="title1">Density of Accidents on Sunday</p>
+    <p class="imgs">
+        {% load static %}
+        <img src="{% static 'images/sundaydata.jpg' %}" alt="">
+        <div>
+           &nbsp;&nbsp;&nbsp;>>> There's a peak in accidents at 00:00 AM night.
+            Most of the Accidents happen between 12:00 PM to 5:00 PM
+        </div>
+    </p>
+
+    <p class="title1">Density of Accidents on Monday</p>
+    <p class="imgs">
+        {% load static %}
+        <img src="{% static 'images/mondaydata.jpg' %}" alt="">
+        <div>
+           &nbsp;&nbsp;&nbsp;>>> Major Accidents occur in Morning 7:00AM to 9:00AM and between 2:00 PM to 4:30 PM. Most probably due to people going 
+            to work in morning and returning back at noon till evening.
+        </div>
+    </p>
+
+    <p class="maintitle">Visualization and Positional Analysis: Accident Density</p>
+
+    <p class="title1">Latitude data</p>
+        <pre class="prestyle">{{ dict.10 }}</pre>
+
+    <p class="title1">Longitude data</p>
+        <pre class="prestyle">{{ dict.11 }}</pre>
+
+    <p class="title1">Map of Latitude and Longitude points</p>
+    <p class="imgs">
+        {% load static %}
+        <img src="{% static 'images/accipos.jpg' %}" alt="">
+        <div>
+           &nbsp;&nbsp;&nbsp;>>> Density of accidents are significantly more on Eastern and Western side of USA
+        </div>
+    </p>
+
+    <p class="title1">Interactive Map of Accident Desity</p>
+    <div style="width:1100px; height:520px; margin:0 auto;">
+        {{ map_html|safe }}
+    </div>
+
+    <p class="maintitle">Exploratory analysis & visualization on: Temperature</p>
+
+    <p class="title1">Temperature Readings</p>
+        <pre class="prestyle">{{ dict.12 }}</pre>
+
+        <div>
+            &nbsp;&nbsp;&nbsp;>>> Temperature Data is in Fahrenheit
+        </div>
+
+    <p class="title1">Density of Accidents vs Temperature</p>
+        <p class="imgs">
+            {% load static %}
+            <img src="{% static 'images/accivstemp.jpg' %}" alt="">
+            <div>
+               &nbsp;&nbsp;&nbsp;>>> There's no significant relation of occurrence of accidents with Temperature.
+                However, below 10°C accidents are less likely to occur.
+            </div>
+        </p>
+    
+
+    <p class="maintitle">Exploratory analysis & visualization on: Weather Conditions</p>
+
+    <p class="title1">Unique Weather Conditions During Accidents</p>
+        <p>
+            <!-- {{ dict.13 }} -->
+            {% for x in dict.13 %}
+            <div class="datas"> {{ x }} </div>
+            {% endfor %}
+        </p>
+        <p class="imgs">
+            {% load static %}
+            <img src="{% static 'images/weather.jpg' %}" alt="">
+            <div>
+               &nbsp;&nbsp;&nbsp;>>> It can be concluded that during difficult weather conditions like Rain, Fog or ThunderStorm less accidents occur.
+                And Most of the Accidents occur in Normal Weather Conditions.
+            </div>
+        </p>
+
+</body>
+</html>

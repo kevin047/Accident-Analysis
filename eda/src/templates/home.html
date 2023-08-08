@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document1</title>
+</head>
+<body>
+    <h1>Hello World! I am Robot Speed OneTeraHeartz Memory OneZetabyte</h1>
+    <div>
+        {{ request.user }} 
+        {{ request.user.is_authenticated }}
+        <div>
+            <ul>
+                {% for x, y in my_dict.items %}
+                    <li>{{ x }}</li>
+                    {% for k in y %}
+                        <span> {{ k }} </span>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
